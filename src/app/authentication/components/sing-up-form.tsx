@@ -51,7 +51,6 @@ const SignUpForm = () => {
       name: "",
       email: "",
       password: "",
-      passwordConfirmation: "",
     },
   });
 
