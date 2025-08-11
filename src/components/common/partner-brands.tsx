@@ -1,6 +1,7 @@
 "use client";
 
 import { Card, CardContent } from "@/components/ui/card";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 type Brand = {
@@ -24,7 +25,7 @@ const defaultBrands: Brand[] = [
   },
   {
     name: "New Balance",
-    logo: "./icons_newbalance.svg",
+    logo: "/icons_newbalance.svg",
   },
   // adicione mais marcas se desejar
 ];
@@ -60,16 +61,6 @@ export default function BrandPartnersSection({
     };
   }, []);
 
-  function handleScroll(dir: "left" | "right") {
-    const el = scrollerRef.current;
-    if (!el) return;
-    const amount = Math.max(320, Math.floor(el.clientWidth * 0.8));
-    el.scrollBy({
-      left: dir === "left" ? -amount : amount,
-      behavior: "smooth",
-    });
-  }
-
   return (
     <div className="flex flex-col gap-4">
       <h3 className="px-5 text-lg font-semibold">{title}</h3>
@@ -86,11 +77,13 @@ export default function BrandPartnersSection({
             const card = (
               <Card className="group border-neutral-80 rounded-[32px] border-2 bg-white shadow-none transition hover:shadow-sm">
                 <CardContent className="flex items-center justify-center">
-                  <img
+                  <Image
                     src={brand.logo}
                     alt={`Logomarca da ${brand.name}`}
-                    className="h-12 w-auto"
-                    loading="lazy"
+                    width={48}
+                    height={48}
+                    style={{ width: "auto", height: "auto" }}
+                    className="h-auto w-auto"
                   />
                 </CardContent>
               </Card>
