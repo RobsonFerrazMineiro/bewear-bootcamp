@@ -241,13 +241,6 @@ const productImages = {
 };
 
 function generateSlug(name: string): string {
-  // Corrige manualmente os slugs das categorias principais
-  const manualSlugs: Record<string, string> = {
-    "Acessórios": "acessorios",
-    "Tênis": "tenis",
-    "Calças": "calcas",
-  };
-  if (manualSlugs[name]) return manualSlugs[name];
   return name
     .toLowerCase()
     .replace(/[^a-z0-9\s-]/g, "")
