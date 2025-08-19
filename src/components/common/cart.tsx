@@ -32,13 +32,16 @@ export const Cart = () => {
       </SheetTrigger>
       <SheetContent>
         <SheetHeader>
-          <SheetTitle>Carrinho</SheetTitle>
+          <SheetTitle className="flex gap-2">
+            <ShoppingBasketIcon />
+            Minha sacola
+          </SheetTitle>
         </SheetHeader>
 
         <div className="flex h-full flex-col px-5 pb-5">
           <div className="flex h-full max-h-full flex-col overflow-hidden">
             <ScrollArea className="h-full">
-              <div className="flex h-full flex-col gap-8">
+              <div className="flex h-full flex-col gap-5">
                 {cart?.items.map((item) => (
                   <CartItem
                     key={item.id}
